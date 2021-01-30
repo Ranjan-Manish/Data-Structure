@@ -1,0 +1,31 @@
+Given an unsorted array arr[] of size N, rotate it by D elements in the counter-clockwise direction.
+
+Example:
+
+Input:
+N = 5, D = 2
+arr[] = {1,2,3,4,5}
+Output: 3 4 5 1 2
+Explanation: 1 2 3 4 5  when rotated
+by 2 elements, it becomes 3 4 5 1 2.
+
+==============================================================================================================================================================================
+Method 1:
+
+void rotateArr(int arr[], int d, int n){
+    // code here
+    int count=0, temp;
+    while(count<d){
+        temp = arr[count];
+        for(int i=0; i<n; i++){
+            arr[i]=arr[i+1];
+            if(i==n-1) arr[n-1]=temp;
+        }
+        d--;
+    }
+    return;
+    
+ ==============================================================================================================================================================================
+ Method 2:
+ 
+ 
