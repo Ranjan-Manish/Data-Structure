@@ -17,7 +17,7 @@ int equilibriumPoint(long long a[], int n) {
 
     if(n==1) return 1;
     else{
-        int ts=0, ls=0, rs=0;
+        int ls=0, rs=0;
         for(int i=0; i<n; i++){
             ls+=a[i];
         }
