@@ -1,0 +1,43 @@
+Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.
+
+
+Example:
+
+Input: 
+N = 5
+arr[]= {0 2 1 2 0}
+Output:
+0 0 1 2 2
+Explanation:
+0s 1s and 2s are segregated 
+into ascending order.
+
+//code:
+
+void count_sort(int a[], int n, int pos){
+    int count[10]={0};
+    int b[n];
+    for(int i=0; i<n; i++){
+        ++count[(a[i]/pos)%10];
+    }
+    for(int j=1; j<10; j++){
+        count[j]+=count[j-1];
+    }
+    for(int k=n-1; k>=0; k--){
+        b[--count[(a[k]/pos)%10]] = a[k];
+    }
+    for(int l=0; l<n; l++){
+        a[l]=b[l];
+    }
+    return;
+}
+
+void sort012(int a[], int n)
+{
+    // coode here 
+    int max = *max_element(a,a+n);
+    for(int pos=1; (max/pos)>0; pos=pos*10){
+        count_sort(a,n,pos);
+    }
+    return;
+}
